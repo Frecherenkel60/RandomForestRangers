@@ -86,7 +86,7 @@ Additional predictive features were engineered from textual fields using regular
 
 A high correlation between~\textbf{\texttt{model\_year}}~and~\textbf{\texttt{milage}}~was observed, reflecting the natural relationship between a car's age and usage. However, due to the absence of exact sale dates, these features were retained separately to avoid introducing inaccuracies.
 
-Missing values were handled using a k-Nearest Neighbors (kNN) imputer for features with less than 25\% missing data, while those with more missing values were dropped. An exception was~\textbf{\texttt{horsepower}}, which was imputed using~\textbf{\texttt{cubic\_capacity}}~and~\textbf{\texttt{cylinders}}~before the latter two were removed, given their high multicollinearity with~\textbf{\texttt{horsepower}}.
+Missing values were handled using a k-Nearest Neighbors (kNN) imputer for features with less than 25\% missing data, while those with more missing values were dropped \cite{jadhav2019}. An exception was~\textbf{\texttt{horsepower}}, which was imputed using~\textbf{\texttt{cubic\_capacity}}~and~\textbf{\texttt{cylinders}}~before the latter two were removed, given their high multicollinearity with~\textbf{\texttt{horsepower}}.
 
 Outlier detection focused on reducing the distortion caused by extreme values. A simpler z-score method was employed to remove rows where the z-score of~\textbf{\texttt{price}}~exceeded 3. This approach preserved statistical integrity while mitigating risks associated with anomalies, such as niche luxury vehicles that might misrepresent general trends.
 
@@ -97,7 +97,7 @@ Feature selection refined the dataset by eliminating features with Spearman corr
 \section{Feature Engineering}
 \label{sec:featureEngineering}
 
-A significant preprocessing challenge was the highly right-skewed distributions of the~\textbf{\texttt{mileage}}~and~\textbf{\texttt{price}}~features, which can hinder the performance of many machine learning algorithms. To address this, we applied log-transformations to both variables to normalize their distributions and reduce the impact of extreme values.
+A significant preprocessing challenge was the highly right-skewed distributions of the~\textbf{\texttt{mileage}}~and~\textbf{\texttt{price}}~features, which can hinder the performance of many machine learning algorithms. To address this, we applied log-transformations to both variables to normalize their distributions and reduce the impact of extreme values. 
 
 The original~\textbf{\texttt{mileage}}~distribution showed a sharp concentration of lower values and a long tail of very high mileage readings. This variability reflects realistic vehicle usage, with diesel cars often accumulating extremely high mileage. Since these values are plausible, we retained them as part of the dataset. After applying the log-transformation, the distribution became more symmetric and concentrated around the mean, effectively mitigating skewness. Although the distribution is not perfectly normal, the transformation improved its suitability for modeling.
 
