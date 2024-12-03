@@ -136,11 +136,6 @@ The Spearman correlation matrix provided essential insights for feature selectio
 \section{Model Year and Price}
 \label{sec:modelYearAndPrice}
 
-\begin{wrapfigure}{l}{0.5\textwidth}
-	\includegraphics[width=\linewidth]{images/modelyear_price.png}
-	\centering
-\end{wrapfigure}
-
 The relationship between~\textbf{\texttt{model\_year}}~and~\textbf{\texttt{price}}~reveals a clear trend: older vehicles generally command lower prices, reflecting the depreciation associated with age. Newer vehicles retain higher market values due to technological advancements, improved efficiency, and perceived reliability. However, this trend is not uniform and is accompanied by notable exceptions and insights.
 
 One prominent outlier is a~\textbf{Ford Bronco}~from an earlier model year, which retains a high value despite its age. This highlights the unique behavior of rare or collectible vehicles, whose values can appreciate due to scarcity, historical importance, and collector demand. Such anomalies underscore the need to account for market segmentation when analyzing price trends, as vintage cars do not follow typical depreciation models.
@@ -171,11 +166,6 @@ These findings underscore the importance of vehicle class in determining how mil
 
 \section{Horsepower and Price}
 \label{sec:horsepowerAndPrice}
-
-\begin{wrapfigure}{r}{0.5\textwidth}
-	\includegraphics[width=\linewidth]{images/horsepower_price.png}
-	\centering
-\end{wrapfigure}
 
 The relationship between horsepower and price shows a clear positive correlation: vehicles with higher horsepower tend to command higher prices. This aligns with market expectations, as greater horsepower is associated with enhanced performance, advanced engineering, and premium vehicle categories, which justify higher price points. However, this relationship is not strictly linear and exhibits notable variability.
 
@@ -211,12 +201,12 @@ The evaluation began with a baseline comparison using Linear Regression, which a
 
 XGBoost emerged as the best-performing model on the original dataset, achieving an MAE of 9,391.27, a MAPE of 27.94\%, and an R² score of 0.7985. Its gradient boosting framework captured subtle patterns and feature interactions, outperforming Random Forest (MAE: 9,599.32, R²: 0.7960) and highlighting the advantages of XGBoost's iterative optimization and regularization techniques.
 
-Models trained on the original dataset consistently outperformed those using synthetic data. For example, XGBoost trained on synthetic data achieved an MAE of 9,777.54, a MAPE of 41.53\%, and an R² score of 0.6235, significantly lower than its performance on the original dataset. Despite the synthetic dataset's larger size (100,000 entries vs.~3,200), poor quality, including mixed-up car configurations, outliers, and unrealistic combinations, likely contributed to this disparity. The differing distributions between synthetic and original data further amplified the performance gap, especially since evaluation was conducted on a subset of the original dataset.
-
 \begin{wrapfigure}{r}{0.5\textwidth}
 	\includegraphics[width=\linewidth]{images/xgb_results_mixed.png}
 	\centering
 \end{wrapfigure}
+
+Models trained on the original dataset consistently outperformed those using synthetic data. For example, XGBoost trained on synthetic data achieved an MAE of 9,777.54, a MAPE of 41.53\%, and an R² score of 0.6235, significantly lower than its performance on the original dataset. Despite the synthetic dataset's larger size (100,000 entries vs.~3,200), poor quality, including mixed-up car configurations, outliers, and unrealistic combinations, likely contributed to this disparity. The differing distributions between synthetic and original data further amplified the performance gap, especially since evaluation was conducted on a subset of the original dataset.
 
 Finally, our XGBoost model trained on the original dataset achieved a Root Mean Squared Error (RMSE) of 16,457, far surpassing the competition's median RMSE of 71,900 on Kaggle. This significant performance gap prompted thorough checks for potential information leakage, but no evidence of such issues was found. The results reflect robust preprocessing and effective modeling strategies. Further exploration of this disparity is provided in the critical reflection section.
 
@@ -235,10 +225,11 @@ The dataset's origin from a Kaggle competition allowed for performance benchmark
 
 These findings emphasize the importance of high-quality, well-documented data. Improved datasets with richer attributes, consistent formatting, and clear price-setting mechanisms would enable more robust modeling and enhance the applicability of machine learning techniques in car price prediction.
 
+\backmatter
+
 \bibliography{references}
 \label{bibliography}
 
-\backmatter
 \chapter{Ehrenwörtliche Erklärung}
 \label{cha:ehrenwoertlicheErklaerung}
 
