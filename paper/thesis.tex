@@ -58,9 +58,9 @@
 \section{Motivation and Idea}
 \label{sec:motivationAndIdea}
 
-The field of data science has increasingly focused on synthetic data generation as a method for augmenting datasets to enhance the performance of machine learning models \cite{neves2022}. This study investigates the impact of synthetic data integration on the predictive accuracy of machine learning models, specifically in the context of forecasting retail prices for automobiles. By utilizing both authentic and synthetic datasets, the research provides a detailed evaluation of the advantages and limitations associated with synthetic data usage.
+The field of data science has increasingly focused on synthetic data generation as a method for augmenting datasets to enhance the performance of machine learning models \cite{neves2022}. This study investigates the impact of synthetic data integration on the predictive accuracy of machine learning models, specifically in the context of forecasting retail prices for automobiles.
 
-Moreover, although algorithms for predicting car prices are prevalent, their methodologies are frequently proprietary, creating barriers to broader applicability and understanding. To address this, the study aims to develop a predictive model capable of performing effectively under constrained data availability. Furthermore, this work seeks to identify and rigorously quantify the critical factors that influence vehicle retail pricing, thereby promoting greater transparency and reproducibility within this domain.
+Moreover, although algorithms for predicting car prices are prevalent, their methodologies are frequently proprietary, creating barriers to broader applicability and understanding. To address this, the study aims to develop a predictive model capable of performing effectively under constrained data availability.
 
 \section{Dataset}
 \label{sec:dataset}
@@ -151,12 +151,12 @@ These findings align with the Spearman correlation analysis, where~\textbf{\text
 
 The relationship between mileage and price follows an expected trend: as mileage increases, a car's value decreases. This negative correlation, identified in the Spearman correlation matrix (-0.75), reflects the perception that higher mileage indicates greater wear and tear, reducing a vehicle's market value and desirability. However, the impact of mileage on price varies significantly across vehicle classes.
 
-Luxury brands like Bentley and Lamborghini exhibit steep depreciation per mile compared to upper-class brands such as Porsche and standard brands like Toyota and BMW. In the luxury market, buyers presumably prioritize low mileage as a marker of exclusivity and pristine condition. Consequently, small increases in mileage can lead to substantial drops in value, with regression lines for Bentley and Lamborghini showing steep slopes. In contrast, upper-class brands like Porsche experience more moderate depreciation rates. While these cars retain elements of prestige, buyers are generally more accepting of moderate mileage, resulting in a less pronounced decline in value compared to luxury brands.
-
 \begin{figure}[h]
 	\includegraphics[width=\linewidth]{images/milage_price.png}
 	\centering
 \end{figure}
+
+Luxury brands like Bentley and Lamborghini exhibit steep depreciation per mile compared to upper-class brands such as Porsche and standard brands like Toyota and BMW. In the luxury market, buyers presumably prioritize low mileage as a marker of exclusivity and pristine condition. Consequently, small increases in mileage can lead to substantial drops in value, with regression lines for Bentley and Lamborghini showing steep slopes. In contrast, upper-class brands like Porsche experience more moderate depreciation rates. While these cars retain elements of prestige, buyers are generally more accepting of moderate mileage, resulting in a less pronounced decline in value compared to luxury brands.
 
 For standard brands like Toyota and BMW, the impact of mileage on price is the least severe. These vehicles are often valued for practicality and reliability, leading to slower and steadier depreciation rates. Their regression lines exhibit gentler slopes, highlighting their resilience to value loss with increased mileage.
 
