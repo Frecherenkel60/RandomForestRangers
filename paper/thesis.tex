@@ -90,7 +90,7 @@ Missing values were handled using a k-Nearest Neighbors (kNN) imputer for featur
 
 Outlier detection focused on reducing the distortion caused by extreme values. A simpler z-score method was employed to remove rows where the z-score of~\textbf{\texttt{price}}~exceeded 3. This approach preserved statistical integrity while mitigating risks associated with anomalies, such as niche luxury vehicles that might misrepresent general trends.
 
-Due to the limited amount of data points and the curse of dimensionality, we utilized a combination of dummy variables and quartile-based-grouping for the feature~\textbf{\texttt{brand}}~(Altman & Krzywinski, 2018, S. 399; Bellman, 1961; Ogundowole, 2021). Thus, car brands were grouped into three categories:~\emph{luxury},~\emph{upper class}, and~\emph{normal class}. Brands in the top 25\% of prices across most bins (80-100\%) were classified as~\emph{luxury}~(e.g., Ferrari, Bentley), while those appearing in 50-80\% of bins were labeled~\emph{upper class}~(e.g., Tesla, Porsche). The bins were based on~\emph{milage\_category}~, a categorical representation of~\emph{milage}~, with each bin containing a range of 10,000 miles (e.g., 10k-20k). Remaining brands were considered~\emph{normal class}. This grouping created binary indicators (\textbf{\texttt{is\_luxury}},~\textbf{\texttt{is\_upper\_class}}) while removing original~\textbf{\texttt{brand}}~and~\textbf{\texttt{model}}~attributes.
+Due to the limited amount of data points and the curse of dimensionality, we utilized a combination of dummy variables and quartile-based-grouping for the feature~\textbf{\texttt{brand}}~\cite{altman-2018, bellman-1961, ogundowole-2021}. Thus, car brands were grouped into three categories:~\emph{luxury},~\emph{upper class}, and~\emph{normal class}. Brands in the top 25\% of prices across most bins (80-100\%) were classified as~\emph{luxury}~(e.g., Ferrari, Bentley), while those appearing in 50-80\% of bins were labeled~\emph{upper class}~(e.g., Tesla, Porsche). The bins were based on~\emph{milage\_category}~, a categorical representation of~\emph{milage}~, with each bin containing a range of 10,000 miles (e.g., 10k-20k). Remaining brands were considered~\emph{normal class}. This grouping created binary indicators (\textbf{\texttt{is\_luxury}},~\textbf{\texttt{is\_upper\_class}}) while removing original~\textbf{\texttt{brand}}~and~\textbf{\texttt{model}}~attributes.
 
 Feature selection refined the dataset by eliminating features with Spearman correlations below 15\% with~\textbf{\texttt{price}}, addressing multicollinearity, and retaining the most predictive variables. For example,~\textbf{\texttt{cubic\_capacity}}~and~\textbf{\texttt{cylinders}}~were removed in favor of~\textbf{\texttt{horsepower}}. The final dataset included~\textbf{\texttt{model\_year}},~\textbf{\texttt{milage}},~\textbf{\texttt{horsepower}},~\textbf{\texttt{price}},~\textbf{\texttt{clean\_title}},\\~\textbf{\texttt{accident}},~\textbf{\texttt{is\_automatic}},~\textbf{\texttt{turbo}},~\textbf{\texttt{dual\_shift}},~\textbf{\texttt{is\_hybrid}},~\textbf{\texttt{is\_diesel}},~\textbf{\texttt{is\_gasoline}},\\~\textbf{\texttt{is\_luxury}}, and~\textbf{\texttt{is\_upper\_class}}, representing a balance between relevance and simplicity.
 
@@ -197,14 +197,14 @@ This analysis underscores the progressive improvements achieved by increasingly 
 \chapter{Results and Evaluation}
 \label{cha:resultsAndEvaluation}
 
-The evaluation began with a baseline comparison using Linear Regression, which achieved an MAE of 13,632.41, a MAPE of 50.05\%, and an R² score of 0.6253. Although modest in performance, it provided a valuable benchmark for assessing the improvements offered by more complex models.
-
-XGBoost emerged as the best-performing model on the original dataset, achieving an MAE of 11,314.81, a MAPE of 33.33\%, and an R² score of 0.7039. Its gradient boosting framework captured subtle patterns and feature interactions, slightly outperforming Random Forest (MAE: 11,384.63, R²: 0.7008) and highlighting the advantages of XGBoost's iterative optimization and regularization techniques.
-
 \begin{wrapfigure}{r}{0.5\textwidth}
 	\includegraphics[width=\linewidth]{images/xgb_results_mixed.png}
 	\centering
 \end{wrapfigure}
+
+The evaluation began with a baseline comparison using Linear Regression, which achieved an MAE of 13,632.41, a MAPE of 50.05\%, and an R² score of 0.6253. Although modest in performance, it provided a valuable benchmark for assessing the improvements offered by more complex models.
+
+XGBoost emerged as the best-performing model on the original dataset, achieving an MAE of 11,314.81, a MAPE of 33.33\%, and an R² score of 0.7039. Its gradient boosting framework captured subtle patterns and feature interactions, slightly outperforming Random Forest (MAE: 11,384.63, R²: 0.7008) and highlighting the advantages of XGBoost's iterative optimization and regularization techniques.
 
 Models trained on the original dataset consistently outperformed those using synthetic data. For example, XGBoost trained on synthetic data achieved an MAE of 9,910.14, a MAPE of 42.03\%, and an R² score of 0.6135, overall lower than its performance on the original dataset. Despite the synthetic dataset's larger size (100,000 entries vs.~3,200), poor quality, including mixed-up car configurations, outliers, and unrealistic combinations, likely contributed to this disparity. The differing distributions between synthetic and original data further amplified the performance gap, especially since evaluation was conducted on a subset of the original dataset.
 
@@ -257,7 +257,7 @@ Erklärung rechtliche Folgen haben wird.
   \end{tabularx}
 \end{center}
 
-\vspace{2cm}
+\vspace{1.8cm}
 \noindent Unterschriften\\
 \noindent Mannheim, den 08.~Dezember 2024 \hfill
 
